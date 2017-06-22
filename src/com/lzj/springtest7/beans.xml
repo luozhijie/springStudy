@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="person" class="com.lzj.springtest7.Person">
+        <constructor-arg>
+            <value type="java.lang.String">罗志杰</value>
+        </constructor-arg>
+        <constructor-arg>
+            <value type="java.lang.String">逸然阁</value>
+        </constructor-arg>
+        <constructor-arg>
+            <value type="java.lang.Integer">20</value>
+        </constructor-arg>
+    </bean>
+    <bean id="customer" class="com.lzj.springtest7.Customer">
+        <property name="person" ref="person"></property>
+    </bean>
+</beans>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location">
+            <value>com/lzj/springtest10/person.properties</value>
+        </property>
+        <property name="fileEncoding" value="UTF-8"></property>
+    </bean>
+
+    <bean id="person" class="com.lzj.springtest10.Person">
+        <property name="name" value="${person.name}"></property>
+        <property name="age" value="${person.age}"></property>
+        <property name="address" value="${person.address}"></property>
+    </bean>
+
+</beans>

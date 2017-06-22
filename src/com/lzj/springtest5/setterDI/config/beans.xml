@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="cvsOutPutGenerator" class="com.lzj.springtest5.setterDI.impl.CsvOutputGenerator"></bean>
+    <bean id="outPutHelper" class="com.lzj.springtest5.setterDI.helper.OutPutHelper">
+        <property name="outputGenerator" ref="cvsOutPutGenerator"></property>
+    </bean>
+</beans>

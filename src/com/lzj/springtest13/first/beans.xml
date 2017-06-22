@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="itemBean" class="com.lzj.springtest13.first.Item">
+        <property name="name" value="itemA"></property>
+        <property name="qty" value="10"></property>
+    </bean>
+
+    <bean id="customerBean" class="com.lzj.springtest13.first.Customer">
+        <property name="item" value="#{itemBean}"></property>
+        <property name="itemName" value="#{itemBean.name}"></property>
+    </bean>
+</beans>
