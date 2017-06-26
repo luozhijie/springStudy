@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="customerService" class="com.lzj.springtest18.CustomerService">
+        <property name="name" value="baidu"></property>
+        <property name="url" value="www.baidu.com"></property>
+    </bean>
+
+    <bean id="hijackAroundMethod" class="com.lzj.springtest18.HijackAroundMethod"></bean>
+
+    <bean id="customerMethodCut" class="org.springframework.aop.support.NameMatchMethodPointcut">
+        <property name="mappedName" value="printName"></property>
+    </bean>
+
+    <bean id="customerAdvisor" class="org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor">
+        <property name="pointcut" ref="customerMethodCut"></property>
+        <property name="advice" ref="hijackAroundMethod"></property>
+    </bean>
+
+
+    <bean id="customerServiceProxy" class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+
+        <property name="beanNames">
+            <value>*Service</value>
+        </property>
+
+        <property name="interceptorNames">
+            <list>
+                <value>customerAdvisor</value>
+            </list>
+        </property>
+    </bean>
+
+</beans>
