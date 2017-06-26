@@ -55,5 +55,6 @@
     </orderEntry>
     <orderEntry type="library" name="aspectjrt-1.6.6" level="project" />
     <orderEntry type="library" name="aspectjrt" level="project" />
+    <orderEntry type="library" name="aspectjtools" level="project" />
   </component>
 </module>

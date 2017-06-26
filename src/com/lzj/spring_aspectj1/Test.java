@@ -7,6 +7,7 @@ public class Test {
     @org.junit.Test
     public void test1(){
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(ConcertConfig.class);
-        Audience audience = (Audience) applicationContext.getBean("audience");
+        Performance perf = (Performance) applicationContext.getBean("perf");
+        perf.perform();
     }
 }
